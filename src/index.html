@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ListProj</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+  <!-- Leave out Storage -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-storage.js"></script> -->
+  <script src="/__/firebase/init.js"></script>  
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBZ_WKSwx4hJxmoslFX7F5w4UWw-12i0JI",
+      authDomain: "listproj-e378a.firebaseapp.com",
+      databaseURL: "https://listproj-e378a.firebaseio.com",
+      projectId: "listproj-e378a",
+      storageBucket: "listproj-e378a.appspot.com",
+      messagingSenderId: "339647479751"
+    };
+    firebase.initializeApp(config);
+    // Get a reference to the database service
+    var database = firebase.database();
+  </script>
+</head>
+<body style="padding:32px">
+  <app-root></app-root>
+  <!-- Import and configure the Firebase SDK -->
+  <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+  <!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+  <!-- <script src="/__/firebase/3.9.0/firebase-app.js"></script>
+  <script src="/__/firebase/3.9.0/firebase-auth.js"></script>
+  <script src="/__/firebase/3.9.0/firebase-storage.js"></script>
+  <script src="/__/firebase/init.js"></script>
+
+  <script>
+    var auth = firebase.auth();
+    var storageRef = firebase.storage().ref();
+    function handleFileSelect(evt) {
+      evt.stopPropagation();
+      evt.preventDefault();
+      var file = evt.target.files[0];
+      var metadata = {
+        'contentType': file.type
+      };
+      // Push to child path.
+      // [START oncomplete]
+      storageRef.child('images/' + file.name).put(file, metadata).then(function(snapshot) {
+        console.log('Uploaded', snapshot.totalBytes, 'bytes.');
+        console.log(snapshot.metadata);
+        var url = snapshot.downloadURL;
+        console.log('File available at', url);
+        // [START_EXCLUDE]
+        document.getElementById('linkbox').innerHTML = '<a href="' +  url + '">Click For File</a>';
+        // [END_EXCLUDE]
+      }).catch(function(error) {
+        // [START onfailure]
+        console.error('Upload failed:', error);
+        // [END onfailure]
+      });
+      // [END oncomplete]
+    }
+    window.onload = function() {
+      document.getElementById('file').addEventListener('change', handleFileSelect, false);
+      document.getElementById('file').disabled = true;
+      auth.onAuthStateChanged(function(user) {
+        if (user) {
+          console.log('Anonymous user signed-in.', user);
+          document.getElementById('file').disabled = false;
+        } else {
+          console.log('There was no anonymous session. Creating a new anonymous user.');
+          // Sign the user in anonymously since accessing Storage requires the user to be authorized.
+          auth.signInAnonymously();
+        }
+      });
+    }
+  </script> -->
+</body>
+</html>

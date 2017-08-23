@@ -1,0 +1,19 @@
+/* .rightDIv{
+  margin-top:-300px; 
+  margin-left:32px;
+} */
+h2{
+  color:turquoise;
+}
+.markedLabel{
+  background-color:#43C6DB;
+  padding:16px;
+  margin-bottom:0px;
+}
+
+.recipe{
+  background: black;
+  color:white;
+  padding:20px;
+  min-height: 200px;
+}
